@@ -11,7 +11,7 @@ import java.util.Map;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/cash-flows")
+@RequestMapping("/api/cash-flows")
 public class CashFlowController {
 
     private final CashFlowService cashFlowService;
@@ -57,7 +57,7 @@ public class CashFlowController {
         List<CashFlow> cashFlows = cashFlowService.getAllCashFlows(keyword);
         
         Map<String, List<CashFlow>> data = new HashMap<>();
-        data.put("cash_flows", cashFlows); 
+        data.put("cashFLows", cashFlows); 
         
         return new ApiResponse<>("success", "Berhasil mengambil semua data transaksi cash flow.", data);
     }

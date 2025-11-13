@@ -9,17 +9,30 @@ import java.util.UUID;
 public class CashFlow {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
+    @Column(name = "id", updatable = false, nullable = false, columnDefinition = "uuid")
     private UUID id; 
     
-    // Field Wajib (Type, Source, Label, Amount, Description)
+    @Column(name = "type", nullable = false)
     private String type; 
+    
+    @Column(name = "source", nullable = false)
     private String source; 
+    
+    @Column(name = "label", nullable = false)
     private String label; 
-    private Integer amount; // Ganti ke Integer
+    
+    @Column(name = "amount", nullable = false)
+    private Integer amount;
+
+    @Column(name = "description", nullable = false)
     private String description; 
     
+    @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
+    
+    @Column(name = "updated_at", nullable = false)
     private LocalDateTime updatedAt;
+
 
     // 1. Constructor Wajib (No-Args)
     public CashFlow() {}
